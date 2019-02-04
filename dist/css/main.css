@@ -1,27 +1,128 @@
 * {
   box-sizing: border-box; }
 
+/*media query for mixins*/
+@media screen and (max-width: 768px) {
+  main {
+    align-items: center;
+    text-align: center; }
+    main .lg-heading {
+      line-height: 1;
+      margin-bottom: 1rem; }
+  ul.menu-nav,
+  div.menu-branding {
+    float: none !important;
+    width: 100% !important;
+    min-height: 0; }
+    ul.menu-nav.show,
+    div.menu-branding.show {
+      transform: translate3d(0, 0, 0) !important; }
+  .menu-nav {
+    height: 75vh !important;
+    transform: translate3d(-100%, 0, 0) !important;
+    font-size: 24px; }
+  .menu-branding {
+    height: 25vh !important;
+    transform: translate3d(100%, 0, 0) !important; }
+    .menu-branding .menu-portrait {
+      width: 150px !important;
+      height: 150px !important;
+      background: url(../img/portrait_small.jpg) !important; } }
+
 .menu-btn {
   position: absolute;
   z-index: 3;
   right: 35px;
   top: 35px;
   cursor: pointer;
-  transition: all 1s ease-out; }
+  transition: all .5s ease-out;
+  /*rotate transfor*/ }
   .menu-btn .btn-line {
     width: 28px;
     height: 3px;
     background: #fff;
-    transition: all 1s ease-out;
+    transition: all .5s ease-out;
     margin: 0 0 5px 0; }
   .menu-btn.close {
-    transform: rotate(180deg); }
-    .menu-btn.close .btn-line:nth-child(1) {
-      transform: rotate(45deg) translate(5px, 5px); }
-    .menu-btn.close .btn-line:nth-child(2) {
-      opacity: 0; }
-    .menu-btn.close .btn-line:nth-child(3) {
-      transform: rotate(-45deg) translate(7px, -5px); }
+    transform: rotate(180deg);
+    /*rotate line1*/ }
+    .menu-btn.close .btn-line {
+      /*hide line 2*/
+      /*rotate line 3*/ }
+      .menu-btn.close .btn-line:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px); }
+      .menu-btn.close .btn-line:nth-child(2) {
+        opacity: 0; }
+      .menu-btn.close .btn-line:nth-child(3) {
+        transform: rotate(-45deg) translate(7px, -5px); }
+
+/*menu overlay*/
+.menu {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  opacity: 0.9;
+  visibility: hidden;
+  /*this is for both columns in the menu*/
+  /*delay each slide item by .1s*/ }
+  .menu.show {
+    visibility: visible; }
+  .menu .menu-nav, .menu .menu-branding {
+    display: flex;
+    flex-flow: column wrap;
+    align-items: center;
+    justify-content: center;
+    width: 50%;
+    height: 100vh;
+    float: left;
+    overflow: hidden;
+    margin: 0; }
+  .menu .menu-nav {
+    background: #373737;
+    transform: translate3d(0, -100%, 0);
+    list-style: none;
+    transition: all .5s ease-out; }
+    .menu .menu-nav.show {
+      transform: translate3d(0, 0, 0); }
+    .menu .menu-nav .nav-item {
+      transform: translate3d(400px, 0, 0);
+      transition: all .5s ease-out; }
+      .menu .menu-nav .nav-item.show {
+        transform: translate3d(0, 0, 0); }
+      .menu .menu-nav .nav-item.current > a {
+        color: #eece1a; }
+    .menu .menu-nav .nav-link {
+      text-transform: uppercase;
+      display: inline-block;
+      position: relative;
+      font-size: 30px;
+      padding: 1rem 0;
+      font-weight: 300;
+      color: #fff;
+      text-decoration: none;
+      transition: all .5s ease-out; }
+      .menu .menu-nav .nav-link:hover {
+        color: #eece1a; }
+  .menu .nav-item:nth-child(1) {
+    transition-delay: 0.1s; }
+  .menu .nav-item:nth-child(2) {
+    transition-delay: 0.2s; }
+  .menu .nav-item:nth-child(3) {
+    transition-delay: 0.3s; }
+  .menu .nav-item:nth-child(4) {
+    transition-delay: 0.4s; }
+  .menu .menu-branding {
+    background: #444;
+    transform: translate3d(0, 100%, 0);
+    transition: all .5s ease-out; }
+    .menu .menu-branding.show {
+      transform: translate3d(0, 0, 0); }
+    .menu .menu-branding .menu-portrait {
+      width: 250px;
+      height: 250px;
+      background: url("../img/portrait.jpg");
+      border-radius: 50%;
+      border: 3px solid #eece1a; }
 
 body {
   background: #444;
@@ -76,7 +177,7 @@ main {
       padding: 0.4rem; }
       main .icons a:hover {
         color: #eece1a;
-        transition: all 1s ease-out; }
+        transition: all .5s ease-out; }
   main#home {
     overflow: hidden; }
     main#home h1 {

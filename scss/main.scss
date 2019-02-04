@@ -1,5 +1,8 @@
 @import 'config';
-@import '_menu';
+@import 'mobile';
+@import 'menu';
+
+
 body {
     background: $primary-color;
     color:#fff;

@@ -12,10 +12,10 @@
         @include easeout();
         margin:0 0 5px 0;
     }
-    //rotate transfor
+    /*rotate transfor*/
     &.close {
         transform:rotate(180deg);
-        //rotate line1
+        /*rotate line1*/
            .btn-line{
 
             &:nth-child(1) {
@@ -29,9 +29,96 @@
            }
 
            
-        //hide line 2
+        /*hide line 2*/
 
-        //rotate line 3
+        /*rotate line 3*/
     }
 }
 }
+
+/*menu overlay*/
+.menu {
+    position:fixed;
+    top:0;
+    width:100%;
+    opacity:0.9;
+    visibility:hidden;
+    &.show {
+        visibility: visible;
+    }
+    /*this is for both columns in the menu*/
+    .menu-nav,.menu-branding {
+        display: flex;
+        flex-flow:column wrap;
+        align-items:center;
+        justify-content: center;
+        width:50%;
+        height:100vh;
+        float:left;
+        overflow:hidden;
+        margin:0;
+    }
+    .menu-nav {
+        background: darken($primary-color, 5);
+        transform: translate3d(0,-100%,0);
+        list-style: none;
+        @include easeout;
+        &.show {
+            transform: translate3d(0,0,0);
+        }
+      .nav-item {
+            transform: translate3d(400px,0,0);
+            @include easeout();
+       
+
+        &.show {
+            transform: translate3d(0,0,0);
+        }
+        &.current > a{
+            color:$secondary-color;
+        }
+    }
+    .nav-link {
+        text-transform:uppercase;
+        display:inline-block;
+        position:relative;
+        font-size:30px;
+        padding:1rem 0;
+        font-weight:300;
+        color:#fff;
+        text-decoration: none;
+        @include easeout;
+        
+        &:hover {
+            color: $secondary-color;
+        }
+    }
+    }
+    /*delay each slide item by .1s*/
+    @for $x from 1 through 4 {
+        .nav-item:nth-child(#{$x}) {
+            transition-delay: $x * 0.1s;
+        }
+    }
+    .menu-branding{
+        background: $primary-color;
+        transform: translate3d(0,100%,0);
+        @include easeout;
+        &.show {
+            transform: translate3d(0,0,0);
+        }
+        .menu-portrait {
+            width:250px;
+            height:250px;
+            background: url('../img/portrait.jpg');
+            border-radius: 50%;
+           border:3px solid $secondary-color;
+        }
+    }
+
+    
+
+
+
+}
+

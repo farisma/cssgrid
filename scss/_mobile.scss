@@ -1,0 +1,44 @@
+@include mediaXL {
+
+   
+}
+
+@include mediaLg {}
+
+@include mediaMd {
+    main { 
+        align-items: center;
+        text-align:center;
+        .lg-heading {
+            line-height:1;
+            margin-bottom:1rem;
+        }
+    }
+    ul.menu-nav,
+    div.menu-branding {
+        float:none !important;
+        width:100% !important;
+        min-height:0; 
+        
+       &.show {
+        transform: translate3d(0,0,0) !important;
+        }
+    }
+    .menu-nav {
+        height:75vh !important;
+        transform:translate3d(-100%,0,0) !important;
+        font-size:24px;
+    }
+    .menu-branding {
+        height:25vh !important;
+        transform:translate3d(100%,0,0) !important;
+        .menu-portrait {
+            width:150px !important;
+            height:150px !important;
+            background:url(../img/portrait_small.jpg) !important;
+        }
+    }
+    
+}
+
+@include mediaSm {}

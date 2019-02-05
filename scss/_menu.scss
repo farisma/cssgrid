@@ -8,7 +8,7 @@
     .btn-line{
         width:28px;
         height:3px;
-        background:#fff;
+        background:set-text-color($primary-color);
         @include easeout();
         margin:0 0 5px 0;
     }
@@ -85,7 +85,7 @@
         font-size:30px;
         padding:1rem 0;
         font-weight:300;
-        color:#fff;
+        color:set-text-color($primary-color);
         text-decoration: none;
         @include easeout;
         
@@ -115,10 +115,5 @@
            border:3px solid $secondary-color;
         }
     }
-
-    
-
-
-
 }
 

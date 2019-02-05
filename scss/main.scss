@@ -1,12 +1,12 @@
 @import 'config';
-@import 'mobile';
 @import 'menu';
 
 
 body {
     background: $primary-color;
-    color:#fff;
+    color:set-text-color($primary-color);
     height:100%;
+    min-height:calc(100%-60px);
     margin:0;
     font-family:'Segoe UI', Tahoma;
     line-height:1.5;
@@ -59,3 +59,48 @@ main {
     }
 }
 }
+
+.about-info {
+    display:grid;
+    grid-gap:30px;
+    grid-template-areas:
+    'bioimage bio bio'
+    'job1 job2 job3';
+    grid-template-columns: repeat(3,1fr);
+    .bio-image{
+        grid-area:bioimage;
+        margin:0 auto;
+        border-radius:50%;
+        border:$secondary-color solid 3px;
+
+    }
+    .bio {
+        font-size:1.5rem;
+        grid-area: bio;
+    }
+    .job-1{
+        grid-area:job1;
+    }
+    .job-2{
+        grid-area:job2;
+    }
+    .job-3{
+        grid-area:job3;
+    }
+    .job{
+        background: lighten($primary-color, 5);
+        padding:0.5rem;
+        border-bottom:5px $secondary-color solid;
+    }
+}
+
+#main-footer {
+    text-align:center;
+    height:60px;
+    color: set-text-color($primary-color);
+    background:darken($primary-color,10);
+    padding:1rem;
+}
+
+// mobile should run at the end
+@import 'mobile';

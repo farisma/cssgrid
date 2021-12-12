@@ -21,7 +21,7 @@
             </div>
             <ul class="menu-nav">
                 <li class="nav-item current">
-                    <a href="/home.html" class="nav-link">Home</a>
+                    <a href="/home.html" class="nav-link">Home testing pull in master while done from branch</a>
                 </li>
                 <li class="nav-item">
                     <a href="/abou.html" class="nav-link">ِAbout me</a>
